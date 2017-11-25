@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="main">
+    <i>{{ formatTime(time).min }}</i>
+    <i>{{ formatTime(time).scs }}</i>
+    <i style="font-size:14px;">{{ formatTime(time).ms }}</i>
+  </div>
+
+  <div class="btn-group btnOne">
+    <button *ngIf="!started ;else pauser" (click)="toggle_resetDefault();this.toggle()">
+      <span>
+        <i class="fa fa-play" aria-hidden="true"></i>
+      </span>
+    </button>
+    <ng-template #pauser>
+      <button  (click)="toggle_reset();this.toggle()">
+        <span>
+          <i class="fa fa-pause" aria-hidden="true"></i>
+        </span>
+      </button>
+    </ng-template>
+
+  </div>
+  <div class="btn-group btnTwo">
+    <button *ngIf="btn_reset" (click)="reset()">
+      <span>
+        <i class="fa fa-repeat" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+</div>
